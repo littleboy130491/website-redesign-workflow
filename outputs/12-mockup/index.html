@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hartono &amp; Rekan | Legal Excellence in Indonesia</title>
+  <meta name="description" content="Trusted legal counsel for Indonesian businesses. Corporate law, dispute resolution, human trafficking law, and property law services.">
+
+  <style>
+    /* ===========================================
+       CSS ARCHITECTURE
+       1. Reset & Variables
+       2. Base & Typography
+       3. Layout Components
+       4. UI Components
+       5. Section Specifics
+       6. Responsive
+       =========================================== */
+
+    /* ---- 1. Reset & Variables ---- */
+    :root {
+      --primary: #1E3A5F;
+      --primary-light: #2C5282;
+      --accent: #C9A227;
+      --accent-dark: #A88B1F;
+      --bg: #FFFFFF;
+      --bg-alt: #F7F9FC;
+      --text: #1A202C;
+      --text-muted: #4A5568;
+      --border: #E2E8F0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      --radius: 8px;
+      --transition: 200ms ease;
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ---- 2. Base & Typography ---- */
+    body {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    h1 { font-size: clamp(2rem, 4vw, 3rem); }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 1rem; }
+    h3 { font-size: 1.25rem; }
+
+    p { color: var(--text-muted); }
+    a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--primary-light); }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute; top: -100px; left: 16px;
+      background: var(--primary); color: white; padding: 12px 24px;
+      z-index: 1000; border-radius: var(--radius); text-decoration: none;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* Focus States */
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+    /* ---- 3. Layout Components ---- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section--alt { background: var(--bg-alt); }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+
+    .section-header p { font-size: 1.125rem; }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+    /* ---- 4. UI Components ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+
+    .btn--primary {
+      background: var(--accent);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+    .btn--primary:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      color: var(--text);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn--outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--primary);
+      border-color: transparent;
+    }
+    .btn--ghost:hover { background: var(--bg-alt); }
+
+    /* Icon wrapper */
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .icon svg { width: 24px; height: 24px; }
+
+    .icon--sm svg { width: 20px; height: 20px; }
+    .icon--lg svg { width: 32px; height: 32px; }
+    .icon--xl svg { width: 48px; height: 48px; }
+
+    /* Card */
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    /* ---- 5. Section Specifics ---- */
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .logo__mark {
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav__link {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text);
+      padding: 8px 0;
+      position: relative;
+    }
+
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+
+    .nav__link:hover::after,
+    .nav__link[aria-current="page"]::after { width: 100%; }
+
+    .nav__cta { margin-left: 8px; }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mobile-nav.open { display: flex; }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(30,58,95,0.08);
+      color: var(--primary);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero__title { margin-bottom: 24px; }
+
+    .hero__subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero__visual {
+      position: relative;
+    }
+
+    .hero__image {
+      width: 100%;
+      height: 420px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__image svg { color: rgba(255,255,255,0.3); }
+
+    .hero__stats {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: white;
+      padding: 24px 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      gap: 32px;
+    }
+
+    .stat { text-align: center; }
+    .stat__number {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .stat__label { font-size: 0.875rem; color: var(--text-muted); }
+
+    /* Team */
+    .team__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .team-card {
+      text-align: center;
+      padding: 32px 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+
+    .team-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .team-card__photo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-card__photo svg { color: rgba(255,255,255,0.5); }
+
+    .team-card__name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .team-card__title {
+      font-size: 0.875rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .team-card__spec {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .team-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .team-card__link:hover { color: var(--accent); }
+
+    /* Services */
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      padding: 32px 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+      transition: all var(--transition);
+    }
+
+    .service-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card__icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      background: rgba(30,58,95,0.08);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-card__icon svg { color: var(--primary); }
+
+    .service-card__title { margin-bottom: 12px; }
+    .service-card__desc { font-size: 0.9375rem; }
+
+    /* About */
+    .about__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about__content h2 { margin-bottom: 24px; }
+    .about__content > p { margin-bottom: 24px; }
+
+    .about__list { list-style: none; margin-bottom: 32px; }
+    .about__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .about__list svg { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    .about__list strong { color: var(--text); }
+
+    .about__visual {
+      height: 400px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about__visual svg { color: rgba(255,255,255,0.3); }
+
+    /* Publications */
+    .pub__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .pub-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .pub-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+    .pub-card__image {
+      height: 160px;
+      background: linear-gradient(135deg, #2C5282 0%, #1E3A5F 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pub-card__image svg { color: rgba(255,255,255,0.3); width: 48px; height: 48px; }
+
+    .pub-card__content { padding: 24px; }
+    .pub-card__date { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 8px; }
+    .pub-card__title {
+      font-size: 1.0625rem;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .pub-card__title a { color: var(--text); }
+    .pub-card__title a:hover { color: var(--primary); }
+    .pub-card__excerpt { font-size: 0.9375rem; }
+
+    /* CTA */
+    .cta {
+      padding: 80px 0;
+      background: var(--primary);
+      text-align: center;
+    }
+
+    .cta h2 { color: white; margin-bottom: 16px; }
+    .cta p { color: rgba(255,255,255,0.9); font-size: 1.125rem; margin-bottom: 32px; }
+
+    .cta .btn--primary {
+      background: white;
+      color: var(--primary);
+      border-color: white;
+    }
+    .cta .btn--primary:hover {
+      background: var(--bg-alt);
+      border-color: var(--bg-alt);
+      transform: translateY(-2px);
+    }
+
+    .cta__contact {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9375rem;
+    }
+    .cta__contact a { color: white; }
+    .cta__contact a:hover { text-decoration: underline; }
+
+    /* Footer */
+    .footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.8);
+      padding: 64px 0 32px;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer__brand p {
+      color: rgba(255,255,255,0.7);
+      margin-top: 16px;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    .footer h4 {
+      color: white;
+      font-size: 1rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .footer__links { list-style: none; }
+    .footer__links li { margin-bottom: 12px; }
+    .footer__links a {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9375rem;
+      transition: color var(--transition);
+    }
+    .footer__links a:hover { color: white; }
+
+    .footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.9375rem;
+    }
+    .footer__contact-item svg { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+    .footer__bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer__legal { display: flex; gap: 24px; }
+    .footer__legal a { color: rgba(255,255,255,0.5); }
+    .footer__legal a:hover { color: white; }
+
+    /* ---- 6. Responsive ---- */
+    @media (max-width: 1024px) {
+      .services__grid { grid-template-columns: repeat(2, 1fr); }
+      .team__grid { grid-template-columns: repeat(2, 1fr); }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 56px 0; }
+
+      .nav { display: none; }
+      .mobile-toggle { display: block; }
+
+      .hero__inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero__stats {
+        position: static;
+        margin-top: 24px;
+        justify-content: center;
+      }
+
+      .team__grid,
+      .services__grid,
+      .pub__grid { grid-template-columns: 1fr; }
+
+      .about__inner { grid-template-columns: 1fr; }
+      .about__visual { height: 280px; }
+
+      .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+
+      .cta__contact { flex-direction: column; gap: 16px; }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="logo">
+        <span class="logo__mark">H&amp;R</span>
+        <span>Hartono &amp; Rekan</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#team" class="nav__link">Our Team</a>
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#publications" class="nav__link">Publications</a>
+        <a href="#contact" class="btn btn--primary nav__cta">Schedule Consultation</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#team" class="nav__link">Our Team</a>
+      <a href="#services" class="nav__link">Services</a>
+      <a href="#about" class="nav__link">About</a>
+      <a href="#publications" class="nav__link">Publications</a>
+      <a href="#contact" class="btn btn--primary">Schedule Consultation</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="hero__badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Trusted Legal Counsel Since 1995
+          </span>
+          <h1 id="hero-title">Legal Excellence for Indonesian Businesses</h1>
+          <p class="hero__subtitle">
+            We provide comprehensive legal services in corporate law, dispute resolution, human trafficking law, and property law. Our experienced team is committed to protecting your interests.
+          </p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">Schedule a Consultation</a>
+            <a href="#team" class="btn btn--outline">Meet Our Team</a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__image">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="hero__stats">
+            <div class="stat">
+              <div class="stat__number">28+</div>
+              <div class="stat__label">Years</div>
+            </div>
+            <div class="stat">
+              <div class="stat__number">500+</div>
+              <div class="stat__label">Cases</div>
+            </div>
+            <div class="stat">
+              <div class="stat__number">98%</div>
+              <div class="stat__label">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section" aria-labelledby="team-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="team-title">Our Legal Team</h2>
+          <p>Experienced attorneys dedicated to achieving the best outcomes for our clients.</p>
+        </header>
+
+        <div class="team__grid">
+          <!-- Lawyer 1 -->
+          <article class="team-card">
+            <div class="team-card__photo">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 class="team-card__name">Dr. Budi Hartono</h3>
+            <p class="team-card__title">Managing Partner</p>
+            <p class="team-card__spec">Corporate Law, M&amp;A, Foreign Investment</p>
+            <a href="#contact" class="team-card__link">
+              View Profile
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </article>
+
+          <!-- Lawyer 2 -->
+          <article class="team-card">
+            <div class="team-card__photo">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 class="team-card__name">Diana Rekan, S.H., LL.M.</h3>
+            <p class="team-card__title">Senior Partner</p>
+            <p class="team-card__spec">Human Trafficking Law, Criminal Defense</p>
+            <a href="#contact" class="team-card__link">
+              View Profile
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </article>
+
+          <!-- Lawyer 3 -->
+          <article class="team-card">
+            <div class="team-card__photo">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 class="team-card__name">Ahmad Wijaya, S.H.</h3>
+            <p class="team-card__title">Partner</p>
+            <p class="team-card__spec">Dispute Resolution, Arbitration</p>
+            <a href="#contact" class="team-card__link">
+              View Profile
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="#" class="btn btn--outline">View All Attorneys</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section section--alt" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="services-title">Practice Areas</h2>
+          <p>Comprehensive legal services tailored to Indonesian businesses and individuals.</p>
+        </header>
+
+        <div class="services__grid">
+          <article class="service-card">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Corporate Law</h3>
+            <p class="service-card__desc">Business formation, M&amp;A, governance, and commercial contracts.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Dispute Resolution</h3>
+            <p class="service-card__desc">Litigation, arbitration, mediation, and negotiation.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Human Trafficking</h3>
+            <p class="service-card__desc">Victim advocacy and prevention consulting.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Property Law</h3>
+            <p class="service-card__desc">Real estate, land acquisition, and tenancy agreements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container about__inner">
+        <div class="about__content">
+          <h2 id="about-title">Why Clients Choose Us</h2>
+          <p>
+            With over 28 years of experience, Hartono &amp; Rekan has established itself as a leading law firm in Indonesia, known for commitment to client success and ethical practice.
+          </p>
+          <ul class="about__list">
+            <li>
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span><strong>Experienced Team</strong> — Seasoned attorneys with deep Indonesian law expertise</span>
+            </li>
+            <li>
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span><strong>Proven Track Record</strong> — 500+ successful cases across practice areas</span>
+            </li>
+            <li>
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span><strong>Client-Focused</strong> — Personalized attention and clear communication</span>
+            </li>
+            <li>
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span><strong>Strategic Advocacy</strong> — Thorough research and preparation</span>
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn--primary">Schedule a Consultation</a>
+        </div>
+        <div class="about__visual">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section section--alt" aria-labelledby="pub-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="pub-title">Latest Publications</h2>
+          <p>Insights from our legal experts on Indonesian law and regulations.</p>
+        </header>
+
+        <div class="pub__grid">
+          <article class="pub-card">
+            <div class="pub-card__image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div class="pub-card__content">
+              <p class="pub-card__date">February 17, 2021</p>
+              <h3 class="pub-card__title">
+                <a href="#">Advokat Harus Diberikan Kesetaraan Penegak Hukum</a>
+              </h3>
+              <p class="pub-card__excerpt">Analisis tentang kesetaraan profesi hukum dalam sistem penegakan...</p>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="pub-card__image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="pub-card__content">
+              <p class="pub-card__date">January 13, 2021</p>
+              <h3 class="pub-card__title">
+                <a href="#">Menyoal Hukum Human Trafficking</a>
+              </h3>
+              <p class="pub-card__excerpt">Analisis komprehensif tentang perdagangan manusia di Indonesia...</p>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="pub-card__image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              </svg>
+            </div>
+            <div class="pub-card__content">
+              <p class="pub-card__date">January 13, 2021</p>
+              <h3 class="pub-card__title">
+                <a href="#">Hubungan Sewa Menyewa Perumahaan</a>
+              </h3>
+              <p class="pub-card__excerpt">Panduan hukum tentang sewa menyewa properti di Indonesia...</p>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="#" class="btn btn--outline">View All Publications</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Ready to Discuss Your Legal Needs?</h2>
+        <p>Schedule a confidential consultation with our experienced attorneys.</p>
+        <a href="mailto:kantorhukumhartono@gmail.com" class="btn btn--primary">Schedule a Consultation</a>
+        <div class="cta__contact">
+          <span>(021) 58 58 333</span>
+          <a href="mailto:kantorhukumhartono@gmail.com">kantorhukumhartono@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="logo" style="color: white;">
+            <span class="logo__mark">H&amp;R</span>
+            <span>Hartono &amp; Rekan</span>
+          </a>
+          <p>Trusted legal counsel for Indonesian businesses since 1995. Committed to excellence and client success.</p>
+        </div>
+
+        <div>
+          <h4>Practice Areas</h4>
+          <ul class="footer__links">
+            <li><a href="#services">Corporate Law</a></li>
+            <li><a href="#services">Dispute Resolution</a></li>
+            <li><a href="#services">Human Trafficking Law</a></li>
+            <li><a href="#services">Property Law</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <div class="footer__contact-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Jln. Aries Asri 6 No. 4 Lt. 2<br>Komplek Taman Aries, Jakarta Barat 11620</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>(021) 58 58 333</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>kantorhukumhartono@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 Hartono &amp; Rekan. All rights reserved.</span>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const toggle = document.querySelector('.mobile-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close on link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

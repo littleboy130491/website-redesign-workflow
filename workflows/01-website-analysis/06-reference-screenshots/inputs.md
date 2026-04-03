@@ -12,7 +12,7 @@
 
 - `outputs/06-reference-screenshots/` — Contains screenshots from reference sites
   - Subfolder per perspective: `design/`, `content/`, `user-flow/`, `technical/`
-  - Filename format: `{site-name}-{specific-page}.png`
+  - Filename format: `{site-name}-{specific-page}.jpg`
 
 ## Screenshot Requirements
 

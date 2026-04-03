@@ -11,7 +11,7 @@
 ## Output Location
 
 - `outputs/05-screenshots/` — Contains screenshots of each core page
-  - Filename format: `{page-name}-{priority}.png` (e.g., `homepage-p0.png`, `about-p1.png`)
+  - Filename format: `{page-name}-{priority}.jpg` (e.g., `homepage-p0.jpg`, `about-p1.jpg`)
 
 ## Screenshot Requirements
 

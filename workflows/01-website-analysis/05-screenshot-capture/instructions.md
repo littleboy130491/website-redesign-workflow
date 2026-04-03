@@ -13,7 +13,7 @@ Capture full-page screenshots of all core pages for visual analysis.
    - Set viewport to 1920x1080 (desktop)
    - Scroll through entire page to capture full content
    - Take full-page screenshot
-   - Save to `outputs/05-screenshots/` with naming convention: `{page-name}-{priority}.png`
+   - Save to `outputs/05-screenshots/` with naming convention: `{page-name}-{priority}.jpg`
 
 3. Verify each screenshot:
    - Page loaded completely (no loading spinners)
